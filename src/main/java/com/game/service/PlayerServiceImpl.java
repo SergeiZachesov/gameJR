@@ -38,6 +38,36 @@ public class PlayerServiceImpl implements PlayerService {
                                       Integer maxExperience, Integer minLevel, Integer maxLevel,
                                       PlayerOrder order, Integer pageNumber, Integer pageSize) {
 
+//        findAll().stream()
+//                .sorted(((player1, player2) -> {
+//                    if (PlayerOrder.LEVEL.equals(order)) {
+//                        return player1.getLevel().compareTo(player2.getLevel());
+//                    }
+//                    if (PlayerOrder.BIRTHDAY.equals(order)) {
+//                        return player1.getBirthday().compareTo(player2.getBirthday());
+//                    }
+//
+//                    if (PlayerOrder.EXPERIENCE.equals(order)) {
+//                        return player1.getExperience().compareTo(player2.getExperience());
+//                    }
+//                    if (PlayerOrder.NAME.equals(order)) {
+//                        return player1.getName().compareTo(player2.getName());
+//                    }
+//                    return player1.getId().compareTo(player2.getId());
+//                }))
+//                .filter(player -> name == null || player.getName().contains(name))
+//                .filter(player -> title == null || player.getTitle().contains(title))
+//                .filter(player -> race == null || player.getRace().equals(race))
+//                .filter(player -> profession == null || player.getProfession().equals(profession))
+//                .filter(player -> after == null || player.getBirthday().getTime() > after )
+//                .filter(player -> before == null || player.getBirthday().getTime() < before)
+//                .filter(player -> banned == null || player.getBanned().equals(banned))
+//                .filter(player -> minExperience == null || player.getExperience() >= minExperience)
+//                .filter(player -> maxExperience == null || player.getExperience() <= maxExperience)
+//                .filter(player -> minLevel == null || player.getLevel() >= minLevel)
+//                .filter(player -> maxLevel == null || player.getLevel() <= maxLevel)
+//                .skip(pageSize*pageNumber)
+//                .limit(pageSize)
 
         Sort sort = Sort.by(order.getFieldName());
         PageRequest pageRequest = PageRequest.of(pageNumber, pageSize, sort);

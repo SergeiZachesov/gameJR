@@ -44,7 +44,6 @@ public class PlayerSpecification {
     public static Specification<Player> hasBirthday(Long after, Long before) {
         return (root, criteriaQuery, criteriaBuilder)
                 -> {
-            Date date = new Date(Long.MAX_VALUE);
             if (after == null && before == null) return null;
 
             if (after != null && before == null)
