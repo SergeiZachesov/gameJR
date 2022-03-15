@@ -21,12 +21,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-
 public class PlayerServiceImpl implements PlayerService {
 
     private final PlayerRepository repository;
-
-
+    
     @Autowired
     public PlayerServiceImpl(PlayerRepository repository) {
         this.repository = repository;

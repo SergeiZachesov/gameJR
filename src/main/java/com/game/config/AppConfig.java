@@ -28,7 +28,6 @@ import static org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType.
 public class AppConfig {
 
     @Bean
-    //Фабрика создания соответствия объектов и записей в БД
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
@@ -43,7 +42,6 @@ public class AppConfig {
 
     @Profile("prod")
     @Bean
-    //Описание БД к которой мы подключаемся
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
@@ -68,7 +66,6 @@ public class AppConfig {
     }
 
     @Bean
-    //Поддержка транзакций
     public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(emf);
